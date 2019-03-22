@@ -16,14 +16,14 @@ public class RectOverlay extends GraphicOverlay.Graphic{
 
     private GraphicOverlay graphicOverlay;
     private Rect rect;
-
-    public RectOverlay(GraphicOverlay graphicOverlay, Rect rect) {
+    Float smileProb;
+    public RectOverlay(GraphicOverlay graphicOverlay, Rect rect,Float smileProb) {
         super(graphicOverlay);
         rectPaint=new Paint();
         rectPaint.setColor(RECT_COLOR);
         rectPaint.setStrokeWidth(STROKE_WIDTH);
         rectPaint.setStyle(Paint.Style.STROKE);
-
+        this.smileProb=smileProb;
         this.graphicOverlay=graphicOverlay;
         this.rect=rect;
         postInvalidate();
@@ -38,6 +38,7 @@ public class RectOverlay extends GraphicOverlay.Graphic{
         rectF.bottom=translateY(rectF.bottom);
 
         canvas.drawRect(rectF,rectPaint);
+        canvas.drawText(String.format("Smiling Probability is : %f",smileProb),rectF.left,rectF.right,rectPaint);
 
 
     }

@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         detector.detectInImage(image).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionFace>>() {
             @Override
             public void onSuccess(List<FirebaseVisionFace> firebaseVisionFaces) {
-                processFaeVision(firebaseVisionFaces);
+                processFaceVision(firebaseVisionFaces);
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
@@ -110,12 +110,19 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void processFaeVision(List<FirebaseVisionFace> firebaseVisionFaces) {
+    private void processFaceVision(List<FirebaseVisionFace> firebaseVisionFaces) {
 
         for(FirebaseVisionFace faces : firebaseVisionFaces){
             Rect bounds = faces.getBoundingBox();
-            RectOverlay rect = new RectOverlay(graphicOverlay,bounds);
+            float smileProb=0;
+            if (faces.getSmilingProbability() != FirebaseVisionFace.UNCOMPUTED_PROBABILITY) {
+                smileProb = faces.getSmilingProbability();
+               //Toast.makeText(getApplicationContext(),String.format("Smiling probability is %f",smileProb),Toast.LENGTH_LONG).show();
+            }
+            RectOverlay rect = new RectOverlay(graphicOverlay,bounds,smileProb);
             graphicOverlay.add(rect);
+
+
 
 
         }
