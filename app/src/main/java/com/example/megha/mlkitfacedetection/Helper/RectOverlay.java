@@ -38,6 +38,7 @@ public class RectOverlay extends GraphicOverlay.Graphic{
         rectF.bottom=translateY(rectF.bottom);
 
         canvas.drawRect(rectF,rectPaint);
+        rectPaint.setTextSize(15.0f);
         canvas.drawText(String.format("Smiling Probability is : %f",smileProb),rectF.left,rectF.right,rectPaint);
 
 

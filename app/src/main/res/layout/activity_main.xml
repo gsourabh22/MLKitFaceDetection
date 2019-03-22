@@ -9,18 +9,16 @@
     <com.wonderkiln.camerakit.CameraView
         android:id="@+id/cameraView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
+        android:layout_height="match_parent"
         android:layout_above="@+id/btm_detect"
-        android:keepScreenOn="true" />
+        android:adjustViewBounds="true"
+        android:screenOrientation="portrait"/>
 
     <com.example.megha.mlkitfacedetection.Helper.GraphicOverlay
-        android:layout_width="match_parent"
-        android:layout_above="@+id/btm_detect"
-        android:layout_height="match_parent"
         android:id="@+id/GraphicView"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btm_detect" />
 
     <Button
         android:layout_width="match_parent"
