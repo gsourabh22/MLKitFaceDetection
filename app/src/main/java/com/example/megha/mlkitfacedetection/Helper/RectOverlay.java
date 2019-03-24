@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 public class RectOverlay extends GraphicOverlay.Graphic{
 
     private int RECT_COLOR=Color.RED;
-    private float STROKE_WIDTH=4.0f;
+    private float STROKE_WIDTH=2.0f;
     private Paint rectPaint;
 
     private GraphicOverlay graphicOverlay;
@@ -38,8 +38,8 @@ public class RectOverlay extends GraphicOverlay.Graphic{
         rectF.bottom=translateY(rectF.bottom);
 
         canvas.drawRect(rectF,rectPaint);
-        rectPaint.setTextSize(15.0f);
-        canvas.drawText(String.format("Smiling Probability is : %f",smileProb),rectF.left,rectF.right,rectPaint);
+        rectPaint.setTextSize(20f);
+        canvas.drawText(String.format("Smiling Probability is : %f",smileProb),rectF.left,rectF.bottom+14,rectPaint);
 
 
     }

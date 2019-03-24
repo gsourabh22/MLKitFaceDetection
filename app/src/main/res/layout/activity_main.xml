@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/btm_detect"
         android:adjustViewBounds="true"
-        android:screenOrientation="portrait"/>
+        android:screenOrientation="portrait"
+        android:focusableInTouchMode="true"/>
 
     <com.example.megha.mlkitfacedetection.Helper.GraphicOverlay
         android:id="@+id/GraphicView"
